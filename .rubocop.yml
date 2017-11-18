@@ -1,0 +1,8 @@
+Metrics/LineLength:
+  Max: 140
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/AndOr:
+  Enabled: false
+Documentation:
+  Enabled: false
