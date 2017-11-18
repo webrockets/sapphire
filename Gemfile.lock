@@ -50,6 +50,8 @@ GEM
     binding_of_caller (0.7.3)
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
+    bulma-rails (0.6.1)
+      sass (~> 3.2)
     byebug (9.1.0)
     capybara (2.16.0)
       addressable
@@ -238,6 +240,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
+  bulma-rails
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
