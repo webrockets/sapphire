@@ -1,22 +1,18 @@
-h2
-  | Change your password
+= content_for :title, 'Password Reset'
+= content_for :subtitle, 'Change your password'
+= content_for :image
+  .avatar
+    span.fa-stack.fa-4x.has-text-grey
+      i.fa.fa-circle.fa-stack-2x
+      i.fa.fa-lock.fa-stack-1x.fa-inverse
+
 = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
   = f.hidden_field :reset_password_token
   .field
-    = f.label :password, "New password"
-    br
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-      br
-    = f.password_field :password, autofocus: true, autocomplete: "off"
+    .control
+      = f.password_field :password, autofocus: true, autocomplete: "off", class: 'input is-large', placeholder: 'New Password'
   .field
-    = f.label :password_confirmation, "Confirm new password"
-    br
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
-    = f.submit "Change my password"
-= render "devise/shared/links"
+    .control
+      = f.password_field :password_confirmation, autocomplete: "off", class: 'input is-large', placeholder: 'Confirm new password'
+
+  = f.submit "Change my password", class: 'button is-primary is-fullwidth is-large'

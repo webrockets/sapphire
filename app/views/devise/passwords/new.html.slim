@@ -1,11 +1,14 @@
-h2
-  | Forgot your password?
+= content_for :title, 'Password Reset'
+= content_for :subtitle, 'Forgot your password?'
+= content_for :image do
+  figure.avatar
+    span.fa-stack.fa-4x.has-text-grey
+      i.fa.fa-circle.fa-stack-2x
+      i.fa.fa-envelope.fa-stack-1x.fa-inverse
+
 = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
   .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+    .control
+      = f.email_field :email, autofocus: true, placeholder: 'Recovery e-mail', class: 'input is-large'
+
+  = f.submit "Send me reset password link", class: 'button is-primary is-fullwidth is-large'

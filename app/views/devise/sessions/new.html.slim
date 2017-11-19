@@ -1,18 +1,25 @@
-h2
-  | Log in
+= content_for :title, 'Login'
+= content_for :subtitle, 'Please login to proceed.'
+= content_for :image do
+  figure.avatar
+    span.fa-stack.fa-4x.has-text-grey
+      i.fa.fa-circle.fa-stack-2x
+      i.fa.fa-user.fa-stack-1x.fa-inverse
+    / img src="https://www.gravatar.com/avatar/?d=mm&s=100"
+
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
+    .control
+      = f.email_field :email, autofocus: true, class: 'input is-large', placeholder: 'E-mail'
+
   .field
-    = f.label :password
-    br
-    = f.password_field :password, autocomplete: "off"
+    .control
+      = f.password_field :password, autocomplete: "off", class: 'input is-large', placeholder: 'Password'
+
   - if devise_mapping.rememberable?
     .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+      label.checkbox
+        = f.check_box :remember_me
+        = f.label :remember_me
+
+  = f.submit "Log in", class: 'button is-fullwidth is-primary is-large'

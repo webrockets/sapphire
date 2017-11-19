@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    title
+      | Sapphire
+    = csrf_meta_tags
+    = stylesheet_link_tag    'auth', media: 'all', 'data-turbolinks-track': 'reload'
+    / = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    section.hero.is-success.is-fullheight
+      .hero-body
+        .container.has-text-centered
+          .column.is-4.is-offset-4
+            h3.title.has-text-grey = yield :title
+            p.subtitle.has-text-grey = yield :subtitle
+            .box
+              = yield :image
+
+              - if resource.errors.any?
+                .notification.is-danger
+                  - resource.errors.full_messages.each do |message|
+                    p.has-text-left = message
+
+              - if flash[:alert]
+                .notification.is-danger
+                  = flash[:alert]
+
+              - if flash[:notice]
+                .notification.is-info
+                  = flash[:notice]
+
+              - if flash[:error]
+                .notification.is-danger
+                  = flash[:error]
+
+              = yield
+
+            p.has-text-grey
+              = render "devise/shared/links"

@@ -1,11 +1,14 @@
-h2
-  | Resend unlock instructions
+= content_for :title, 'Resend unlock instructions'
+= content_for :subtitle, 'Please type your e-mail to receive the unlock instructions'
+= content_for :image
+  .avatar
+    span.fa-stack.fa-4x.has-text-grey
+      i.fa.fa-circle.fa-stack-2x
+      i.fa.fa-envelope.fa-stack-1x.fa-inverse
+
 = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
   .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
-  .actions
-    = f.submit "Resend unlock instructions"
-= render "devise/shared/links"
+    .control
+      = f.email_field :email, autofocus: true, class: 'input is-large', placeholder: 'Recovery e-mail'
+
+  = f.submit "Resend unlock instructions", class: 'button is-large is-primary is-fullwidth'
