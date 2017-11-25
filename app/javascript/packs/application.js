@@ -7,4 +7,30 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker')
+// third party libraries
+import Vue from 'vue/dist/vue.esm'
+import axios from 'axios'
+
+// Application components
+import UserList from '../users/UserList.vue'
+
+// Add application components here
+const components = {
+  UserList
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.getElementsByName('csrf-token')[0].getAttribute('content')
+  axios.defaults.headers.common = {
+    'X-CSRF-TOKEN': header,
+    'X-Requested-With': 'XMLHttpRequest'
+  };
+
+  Vue.prototype.$routes = Routes
+  Vue.prototype.$http = axios
+
+  const app = new Vue({
+    el: '#app',
+    components
+  })
+})
