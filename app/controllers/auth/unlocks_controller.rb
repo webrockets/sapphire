@@ -1,4 +1,4 @@
-module Users
+module Auth
   class UnlocksController < Devise::UnlocksController
     # GET /resource/unlock/new
     # def new
