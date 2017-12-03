@@ -14,12 +14,35 @@
       thead
         tr
           th Name
+          th Email
+          th Since
+          th Sign In Count
+          th Last Sign In
+          th Status
           th style="width: 10%" Actions
 
     tbody
       - @users.each do |user|
         tr
           td = link_to user.name, user
+          td = user.email
+          td = user.created_at.strftime('%Y/%m/%d at %I:%M %P')
+          td = user.sign_in_count
+          td = user.last_sign_in_at&.strftime('%Y/%m/%d at %I:%M %P')
+          td
+            - if user.confirmed_at
+              span.icon.has-text-success title="Confirmed"
+                i.fa.fa-envelope
+            - else
+              span.icon.has-text-danger title="unconfirmed"
+                i.fa.fa-envelope
+
+            - if user.locked_at
+              span.icon.has-text-success title="Locked"
+                i.fa.fa-ban
+            - else
+              span.icon.has-text-success title="Unlocked"
+                i.fa.fa-check-circle
           td
             = link_to edit_user_path(user), class: 'button is-light is-small mr5', title: 'Edit' do
               span.icon

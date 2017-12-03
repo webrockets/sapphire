@@ -7,7 +7,7 @@
       icon: 'fa fa-pencil'
 
 = component 'components/breadcrumb' do
-  li = link_to 'Items', users_path
+  li = link_to 'Users', users_path
   li.is-active
     a = @user.name
   li = link_to 'Edit', edit_user_path(@user)
