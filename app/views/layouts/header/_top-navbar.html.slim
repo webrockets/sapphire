@@ -1,0 +1,47 @@
+nav.navbar.is-primary
+  .container
+    .navbar-brand
+      = link_to Rails.application.class.parent_name.titleize.upcase, root_path, class: 'navbar-item'
+      / a.navbar-item = Rails.application.class.parent_name.titleize.upcase
+      .navbar-burger.burger[data-target="navbarExampleTransparentExample"]
+        span
+        span
+        span
+
+    #navbarExampleTransparentExample.navbar-menu
+      .navbar-start
+        a.navbar-item href = root_path Home
+        .navbar-item.has-dropdown.is-hoverable
+          a.navbar-link Users
+          .navbar-dropdown.is-boxed
+            a.navbar-item
+              span.icon
+                i.fa.fa-users
+              | List Users
+            a.navbar-item
+              span.icon
+                i.fa.fa-user-plus
+              | New User
+            hr.navbar-divider
+            a.navbar-item
+              span.icon
+                i.fa.fa-cog
+              | User Settings
+
+      .navbar-end
+        - if user_signed_in?
+          .navbar-item.has-dropdown.is-hoverable
+            a.navbar-link = current_user.name || current_user.email
+            .navbar-dropdown.is-boxed
+              a.navbar-item
+                span.icon
+                  i.fa.fa-user
+                | Profile
+              hr.navbar-divider
+              a.navbar-item href=destroy_user_session_path
+                span.icon
+                  i.fa.fa-sign-out
+                | Sign out
+        - else
+          a.navbar-item href=new_user_session_path Sign In
+          a.navbar-item href=new_user_registration_path Sign Up
