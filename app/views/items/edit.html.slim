@@ -1,0 +1,9 @@
+= component 'components/page-title', title: 'Edit Page'
+
+= component 'components/breadcrumb' do
+  li = link_to 'Items', items_path
+  li = link_to @item.name, @item
+  li.is-active
+    a Edit
+
+== render 'form'
