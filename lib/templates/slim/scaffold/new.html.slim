@@ -1,0 +1,8 @@
+= component 'components/page-title', title: 'New <%= singular_table_name.titleize %>'
+
+= component 'components/breadcrumb' do
+  li = link_to '<%= plural_table_name.titleize %>', <%= plural_table_name %>_path
+  li.is-active
+    a New <%= singular_table_name.titleize %>
+
+== render 'form'
