@@ -1,0 +1,19 @@
+= component 'components/page-title', title: 'View <%= singular_table_name.titleize %>'
+  .is-pulled-right
+    = component 'components/button-back', path: <%= plural_table_name %>_path, cssclass: 'mr5 ', text: 'Back'
+    = component 'components/button-link', path: edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), \
+      text: 'Edit', \
+      cssclass: 'mr5 ', \
+      icon: 'fa fa-pencil'
+
+= component 'components/breadcrumb' do
+  li = link_to 'Items', <%= plural_table_name %>_path
+  li.is-active
+    a = @<%= singular_table_name %>.name
+  li = link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>)
+
+.card
+  .card-content
+    p
+      strong Name:
+      =< @<%= singular_table_name %>.name
