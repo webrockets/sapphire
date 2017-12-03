@@ -1,0 +1,8 @@
+.columns.mt15.mb0
+  .column.pb0
+    h1.title = title
+    - if defined? subtitle
+      .subtitle = subtitle
+
+  .column.pb0
+    = yield
