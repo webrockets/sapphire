@@ -9,11 +9,13 @@
 = component 'components/breadcrumb' do
   li = link_to '<%= plural_table_name.titleize %>', <%= plural_table_name %>_path
   li.is-active
-    a = @<%= singular_table_name %>.name
+    a = @<%= singular_table_name %>.id
   li = link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>)
 
 .card
   .card-content
+<% attributes.each do |attribute| -%>
     p
-      strong Name:
-      =< @<%= singular_table_name %>.name
+      strong <%= attribute.human_name %>:
+      =< @<%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
