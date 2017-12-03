@@ -1,0 +1,9 @@
+- unless defined? cssclass
+  - cssclass = ''
+- unless defined? text
+  - text = 'Back'
+
+= link_to path, class: "button is-light #{cssclass}" do
+    span.icon
+      i.fa.fa-chevron-left
+    span = text
