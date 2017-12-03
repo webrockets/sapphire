@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :users
   resources :items
   devise_for :users, path: 'auth', controllers: {
-    sessions: 'auth/sessions'
+    registrations: 'auth/registrations', sessions: 'auth/sessions', invitations: 'auth/invitations', passwords: 'auth/passwords'
   }
 
   namespace :admin do
