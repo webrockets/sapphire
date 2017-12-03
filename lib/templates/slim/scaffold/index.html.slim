@@ -1,26 +1,31 @@
-h1 Listing <%= plural_table_name %>
-h3 Teste Feliz
+= component 'components/page-title', title: 'Listing <%= plural_table_name.titleize %>' do
+  = link_to new_<%= singular_table_name %>_path, class: 'button is-link is-pulled-right' do
+      span.icon
+        i.fa.fa-plus
+      span New <%= human_name.titleize %>
 
-table
-  thead
-    tr
+= component 'components/breadcrumb' do
+  li.is-active
+    a <%= plural_table_name.titleize %>
+
+.card
+  table.table.is-striped.is-hoverable.is-fullwidth
+    .card-header
+      thead
+        tr
 <% attributes.each do |attribute| -%>
-      th <%= attribute.human_name %>
+          th <%= attribute.human_name %>
 <% end -%>
-      th
-      th
-      th
+          th style="width: 10%" Actions
 
-  tbody
-    - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
-      tr
-<% attributes.each do |attribute| -%>
-        td = <%= singular_table_name %>.<%= attribute.name %>
-<% end -%>
-        td = link_to 'Show', <%= singular_table_name %>
-        td = link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>)
-        td = link_to 'Destroy', <%= singular_table_name %>, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path
+    tbody
+      - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+        tr
+          td = link_to <%= singular_table_name %>.name, <%= singular_table_name %>
+          td
+            = link_to edit_<%= singular_table_name %>_path(<%= singular_table_name %>), class: 'button is-light is-small mr5', title: 'Edit' do
+              span.icon
+                i.fa.fa-edit
+            = link_to <%= singular_table_name %>, data: { confirm: 'Are you sure?' }, method: :delete, class: 'button is-small is-danger mr5', title: 'Destroy' do
+              span.icon
+                i.fa.fa-trash
