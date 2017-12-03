@@ -19,6 +19,10 @@
           th style="width: 10%" Actions
 
     tbody
+      - if @<%= plural_table_name %>.empty?
+        tr
+          td colspan="100%" No data found
+
       - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
         tr
 <% attributes.each do |attribute| -%>
