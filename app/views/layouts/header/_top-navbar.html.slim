@@ -14,15 +14,18 @@ nav.navbar.is-primary
         .navbar-item.has-dropdown.is-hoverable
           a.navbar-link Users
           .navbar-dropdown.is-boxed
-            a.navbar-item
+            a.navbar-item href=users_path
               span.icon
                 i.fa.fa-users
               | List Users
-            a.navbar-item
+
+            a.navbar-item href=new_user_path
               span.icon
                 i.fa.fa-user-plus
               | New User
+
             hr.navbar-divider
+
             a.navbar-item
               span.icon
                 i.fa.fa-cog
@@ -37,7 +40,9 @@ nav.navbar.is-primary
                 span.icon
                   i.fa.fa-user
                 | Profile
+
               hr.navbar-divider
+
               a.navbar-item href=destroy_user_session_path
                 span.icon
                   i.fa.fa-sign-out
