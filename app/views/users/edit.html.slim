@@ -1,0 +1,9 @@
+= component 'components/page-title', title: 'Editing User'
+
+= component 'components/breadcrumb' do
+  li = link_to 'Users', users_path
+  li = link_to @user.id, @user
+  li.is-active
+    a Edit
+
+== render 'form'

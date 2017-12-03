@@ -1,0 +1,8 @@
+= component 'components/page-title', title: 'New User'
+
+= component 'components/breadcrumb' do
+  li = link_to 'Users', users_path
+  li.is-active
+    a New User
+
+== render 'form'

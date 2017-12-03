@@ -1,0 +1,18 @@
+= form_for @user do |f|
+  - if @user.errors.any?
+    .notification.is-danger
+      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      ul
+        - @user.errors.full_messages.each do |message|
+          li = message
+
+  .card
+    .card-content
+      .field
+        = f.label :name, class: 'label'
+        = f.text_field :name, class: 'input'
+
+    footer.card-footer
+      p.m15
+        = component 'components/button-back', path: users_path, cssclass: 'mr5'
+        = f.submit class: 'button is-link'
