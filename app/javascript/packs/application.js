@@ -10,6 +10,7 @@
 // third party libraries
 import Vue from 'vue/dist/vue.esm'
 import axios from 'axios'
+import Toaster from '../services/toaster'
 
 // Application components
 import UserList from '../users/UserList.vue'
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   Vue.prototype.$routes = Routes
   Vue.prototype.$http = axios
+  Vue.prototype.$toaster = new Toaster
 
   const app = new Vue({
     el: '#app',

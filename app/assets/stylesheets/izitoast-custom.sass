@@ -1,0 +1,46 @@
+.iziToast
+  $defaultBgColor: #565C70
+  $greenColor: lighten($success, 15%)
+  $redColor: lighten($danger, 15%)
+  $blueColor: lighten($info, 20%)
+  $orangeColor: $warning
+
+  &.iziToast-color-green
+    background: $defaultBgColor
+    border-color: $defaultBgColor
+    .iziToast-icon
+      color: $greenColor
+    .iziToast-message
+      font-weight: normal
+    .iziToast-progressbar > div
+      background-color: $greenColor
+
+  &.iziToast-color-red
+    background: $defaultBgColor
+    border-color: $defaultBgColor
+    .iziToast-icon
+      color: $redColor
+    .iziToast-message
+      font-weight: normal
+    .iziToast-progressbar > div
+      background-color: $redColor
+
+  &.iziToast-color-orange
+    background: $defaultBgColor
+    border-color: $defaultBgColor
+    .iziToast-icon
+      color: $orangeColor
+    .iziToast-message
+      font-weight: normal
+    .iziToast-progressbar > div
+      background-color: $orangeColor
+
+  &.iziToast-color-blue
+    background: $defaultBgColor
+    border-color: $defaultBgColor
+    .iziToast-icon
+      color: $blueColor
+    .iziToast-message
+      font-weight: normal
+    .iziToast-progressbar > div
+      background-color: $blueColor

@@ -12,11 +12,18 @@
  *
  *= require_self
  */
+// third party libraries
 @import 'font-awesome';
+@import 'izitoast/dist/css/iziToast.min.css';
 @import 'bulma';
+
+// application libraries
 @import 'spacing';
 
 body {
   background-color: whitesmoke;
   height: 100vh;
 }
+
+// izitoast custom
+@import 'izitoast-custom';
