@@ -13,11 +13,13 @@ import axios from 'axios'
 import Toaster from '../services/toaster'
 
 // Application components
-import UserList from '../users/UserList.vue'
+import UserList from '../users/UserList'
+import Notification from '../shared/notification'
 
 // Add application components here
 const components = {
-  UserList
+  UserList,
+  Notification
 }
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,0 +1,12 @@
+- if notice
+  notification message=notice
+- if alert
+  notification type="warning" title="Warning" message=alert
+- if flash[:warning]
+  notification type="warning" title="Warning" message=flash[:warning]
+- if flash[:info]
+  notification type="info" title="Notice" message=flash[:info]
+- if flash[:success]
+  notification type="success" title="Success" message=flash[:success]
+- if flash[:error]
+  notification type="error" title="Error" message=flash[:error]
