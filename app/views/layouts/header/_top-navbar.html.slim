@@ -11,25 +11,27 @@ nav.navbar.is-primary
     #navbarExampleTransparentExample.navbar-menu
       .navbar-start
         a.navbar-item href = root_path Home
-        .navbar-item.has-dropdown.is-hoverable
-          a.navbar-link Users
-          .navbar-dropdown.is-boxed
-            a.navbar-item href=users_path
-              span.icon
-                i.fa.fa-users
-              | List Users
 
-            a.navbar-item href=new_user_path
-              span.icon
-                i.fa.fa-user-plus
-              | New User
+        - if user_signed_in?
+          .navbar-item.has-dropdown.is-hoverable
+            a.navbar-link Users
+            .navbar-dropdown.is-boxed
+              a.navbar-item href=admin_users_path
+                span.icon
+                  i.fa.fa-users
+                | List Users
 
-            hr.navbar-divider
+              a.navbar-item href=new_admin_user_path
+                span.icon
+                  i.fa.fa-user-plus
+                | New User
 
-            a.navbar-item
-              span.icon
-                i.fa.fa-cog
-              | User Settings
+              hr.navbar-divider
+
+              a.navbar-item
+                span.icon
+                  i.fa.fa-cog
+                | User Settings
 
       .navbar-end
         - if user_signed_in?

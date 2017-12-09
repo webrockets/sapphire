@@ -1,5 +1,5 @@
 = component 'page-title', title: 'Listing Users' do
-  = link_to new_user_path, class: 'button is-link is-pulled-right' do
+  = link_to new_admin_user_path, class: 'button is-link is-pulled-right' do
       span.icon
         i.fa.fa-plus
       span New User
@@ -24,7 +24,7 @@
     tbody
       - @users.each do |user|
         tr
-          td = link_to user.name, user
+          td = link_to user.name, admin_user_path(user)
           td = user.email
           td = user.created_at.strftime('%Y/%m/%d at %I:%M %P')
           td = user.sign_in_count
@@ -44,9 +44,9 @@
               span.icon.has-text-success title="Unlocked"
                 i.fa.fa-check-circle
           td
-            = link_to edit_user_path(user), class: 'button is-light is-small mr5', title: 'Edit' do
+            = link_to edit_admin_user_path(user), class: 'button is-light is-small mr5', title: 'Edit' do
               span.icon
                 i.fa.fa-edit
-            = link_to user, data: { confirm: 'Are you sure?' }, method: :delete, class: 'button is-small is-danger mr5', title: 'Destroy' do
+            = link_to admin_user_path(user), data: { confirm: 'Are you sure?' }, method: :delete, class: 'button is-small is-danger mr5', title: 'Destroy' do
               span.icon
                 i.fa.fa-trash

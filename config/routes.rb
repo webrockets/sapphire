@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :users
   resources :items
+
   devise_for :users, path: 'auth', controllers: {
     registrations: 'auth/registrations',
     sessions: 'auth/sessions',
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'dashboard', to: 'dashboard#index'
+    resources :users
   end
 
   root to: 'home#index'
