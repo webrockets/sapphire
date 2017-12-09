@@ -1,6 +1,6 @@
-= component 'components/page-title', title: 'Editing User'
+= component 'page-title', title: 'Editing User'
 
-= component 'components/breadcrumb' do
+= component 'breadcrumb' do
   li = link_to 'Users', users_path
   li = link_to @user.name, @user
   li.is-active

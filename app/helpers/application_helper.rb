@@ -1,6 +1,6 @@
 module ApplicationHelper
   def component(name, params = {}, &block)
-    render_component(name, params, &block)
+    render_component("components/#{name}", params, &block)
   end
 
   private

@@ -11,5 +11,5 @@ html
     section
       = render 'layouts/header/top-navbar'
       #app.container
-        = render 'layouts/shared/flash-messages'
+        = component 'flash-messages' do
         = yield

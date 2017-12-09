@@ -1,6 +1,6 @@
-= component 'components/page-title', title: 'Editing <%= singular_table_name.titleize %>'
+= component 'page-title', title: 'Editing <%= singular_table_name.titleize %>'
 
-= component 'components/breadcrumb' do
+= component 'breadcrumb' do
   li = link_to '<%= plural_table_name.titleize %>', <%= plural_table_name %>_path
   li = link_to @<%= singular_table_name %>.id, @<%= singular_table_name %>
   li.is-active

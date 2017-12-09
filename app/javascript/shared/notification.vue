@@ -1,5 +1,5 @@
 <template>
-  <div class="notification"></div>
+  <div></div>
 </template>
 
 <script>
@@ -15,8 +15,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass" scoped>
-.notification
-  display: none
-</style>

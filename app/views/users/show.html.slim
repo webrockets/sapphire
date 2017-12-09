@@ -1,12 +1,12 @@
-= component 'components/page-title', title: 'View User'
+= component 'page-title', title: 'View User'
   .is-pulled-right
-    = component 'components/button-back', path: users_path, cssclass: 'mr5 ', text: 'Back'
-    = component 'components/button-link', path: edit_user_path(@user), \
+    = component 'button-back', path: users_path, cssclass: 'mr5 ', text: 'Back'
+    = component 'button-link', path: edit_user_path(@user), \
       text: 'Edit', \
       cssclass: 'mr5 ', \
       icon: 'fa fa-pencil'
 
-= component 'components/breadcrumb' do
+= component 'breadcrumb' do
   li = link_to 'Users', users_path
   li.is-active
     a = @user.name

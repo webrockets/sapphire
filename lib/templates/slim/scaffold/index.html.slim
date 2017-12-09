@@ -1,10 +1,10 @@
-= component 'components/page-title', title: 'Listing <%= plural_table_name.titleize %>' do
+= component 'page-title', title: 'Listing <%= plural_table_name.titleize %>' do
   = link_to new_<%= singular_table_name %>_path, class: 'button is-link is-pulled-right' do
       span.icon
         i.fa.fa-plus
       span New <%= human_name.titleize %>
 
-= component 'components/breadcrumb' do
+= component 'breadcrumb' do
   li.is-active
     a <%= plural_table_name.titleize %>
 
