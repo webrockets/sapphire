@@ -29,7 +29,7 @@
           td = <%= singular_table_name %>.<%= attribute.name %>
 <% end -%>
           td
-            = link_to <%= singular_table_name %>, class: 'button is-light is-small mr5', title: 'Show' do
+            = link_to <%= singular_table_name %>_path(<%= singular_table_name %>), class: 'button is-light is-small mr5', title: 'Show' do
               span.icon
                 i.fa.fa-eye
 
@@ -37,6 +37,6 @@
               span.icon
                 i.fa.fa-edit
 
-            = link_to <%= singular_table_name %>, data: { confirm: 'Are you sure?' }, method: :delete, class: 'button is-small is-danger mr5', title: 'Destroy' do
+            = link_to <%= singular_table_name %>_path(<%= singular_table_name %>), data: { confirm: 'Are you sure?' }, method: :delete, class: 'button is-small is-danger mr5', title: 'Destroy' do
               span.icon
                 i.fa.fa-trash

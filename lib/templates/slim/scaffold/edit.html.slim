@@ -2,7 +2,7 @@
 
 = component 'breadcrumb' do
   li = link_to '<%= plural_table_name.titleize %>', <%= plural_table_name %>_path
-  li = link_to @<%= singular_table_name %>.id, @<%= singular_table_name %>
+  li = link_to @<%= singular_table_name %>.id, <%= singular_table_name %>_path(@<%= singular_table_name %>)
   li.is-active
     a Edit
 
