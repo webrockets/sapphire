@@ -15,6 +15,7 @@
         tr
           th Name
           th Email
+          th Role
           th Since
           th Sign In Count
           th Last Sign In
@@ -26,6 +27,7 @@
         tr
           td = link_to user.name, admin_user_path(user)
           td = user.email
+          td = user.role.text
           td = user.created_at.strftime('%Y/%m/%d at %I:%M %P')
           td = user.sign_in_count
           td = user.last_sign_in_at&.strftime('%Y/%m/%d at %I:%M %P')
@@ -38,7 +40,7 @@
                 i.fa.fa-envelope
 
             - if user.locked_at
-              span.icon.has-text-success title="Locked"
+              span.icon.has-text-danger title="Locked"
                 i.fa.fa-ban
             - else
               span.icon.has-text-success title="Unlocked"

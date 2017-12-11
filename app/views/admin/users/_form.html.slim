@@ -11,6 +11,13 @@
       .field
         = f.label :name, class: 'label'
         = f.text_field :name, class: 'input'
+      .field
+        = f.label :email, class: 'label'
+        = f.text_field :email, class: 'input'
+      .field
+        = f.label :role, class: 'label'
+        .select
+          = f.select :role, User.role.options
 
     footer.card-footer
       p.m15

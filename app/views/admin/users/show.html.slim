@@ -14,6 +14,30 @@
 
 .card
   .card-content
-    p
-      strong Name:
-      =< @user.name
+    .columns
+      .column
+        p
+          strong Name:
+          =< @user.name
+        p
+          strong Email:
+          =< @user.email
+        p
+          strong Role:
+          =< @user.role.text
+        p
+          strong Since:
+          =< @user.created_at.strftime('%Y/%m/%d at %I:%M %P')
+
+      .column
+        p
+          strong Status:
+          | &nbsp;
+          - if @user.confirmed_at
+            span.mr5.tag.is-success CONFIRMED
+          - else
+            span.mr5.tag.is-danger UNCONFIRMED
+          - if @user.locked_at
+            span.mr5.tag.is-danger LOCKED
+          - else
+            span.mr5.tag.is-success UNLOCKED
