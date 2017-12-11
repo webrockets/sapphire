@@ -35,6 +35,13 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 
+group :test do
+  gem 'json_matchers'
+  gem 'rspec-collection_matchers'
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
+end
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
