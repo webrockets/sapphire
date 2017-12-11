@@ -1,16 +1,18 @@
 = component 'page-title', title: 'View User'
   .is-pulled-right
     = component 'button-back', path: admin_users_path, cssclass: 'mr5 ', text: 'Back'
-    = component 'button-link', path: edit_admin_user_path(@user), \
-      text: 'Edit', \
-      cssclass: 'mr5 ', \
-      icon: 'fa fa-pencil'
+    - if can? :update, @user
+      = component 'button-link', path: edit_admin_user_path(@user), \
+        text: 'Edit', \
+        cssclass: 'mr5 ', \
+        icon: 'fa fa-pencil'
 
 = component 'breadcrumb' do
   li = link_to 'Users', admin_users_path
   li.is-active
     a = @user.name
-  li = link_to 'Edit', edit_admin_user_path(@user)
+  - if can? :update, @user
+    li = link_to 'Edit', edit_admin_user_path(@user)
 
 .card
   .card-content

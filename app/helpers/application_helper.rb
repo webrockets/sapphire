@@ -3,6 +3,10 @@ module ApplicationHelper
     render_component("components/#{name}", params, &block)
   end
 
+  def can?(action, record)
+    policy(record).public_send((action.to_s + '?').to_sym)
+  end
+
   private
 
   def render_component(name, locals, &block)

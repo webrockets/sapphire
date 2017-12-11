@@ -6,7 +6,7 @@ module Admin
     # GET /users
     # GET /users.json
     def index
-      @users = User.all
+      @users = authorize User.all
     end
 
     # GET /users/1
@@ -15,6 +15,7 @@ module Admin
 
     # GET /users/new
     def new
+      authorize User, :create?
       @user = User.new
     end
 
@@ -65,7 +66,7 @@ module Admin
 
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = authorize User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
