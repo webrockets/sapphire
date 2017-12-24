@@ -18,19 +18,19 @@ nav.navbar.is-primary
             .navbar-dropdown.is-boxed
               a.navbar-item href=admin_users_path
                 span.icon
-                  i.fa.fa-users
+                  i.fas.fa-users
                 | List Users
 
               a.navbar-item href=new_admin_user_path
                 span.icon
-                  i.fa.fa-user-plus
+                  i.fas.fa-user-plus
                 | New User
 
               hr.navbar-divider
 
               a.navbar-item
                 span.icon
-                  i.fa.fa-cog
+                  i.fas.fa-cog
                 | User Settings
 
       .navbar-end
@@ -40,14 +40,14 @@ nav.navbar.is-primary
             .navbar-dropdown.is-boxed
               a.navbar-item
                 span.icon
-                  i.fa.fa-user
+                  i.fas.fa-user
                 | Profile
 
               hr.navbar-divider
 
               a.navbar-item href=destroy_user_session_path
                 span.icon
-                  i.fa.fa-sign-out
+                  i.fas.fa-sign-out
                 | Sign out
         - else
           a.navbar-item href=new_user_session_path Sign In

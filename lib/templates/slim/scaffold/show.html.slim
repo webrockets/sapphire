@@ -4,7 +4,7 @@
     = component 'button-link', path: edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), \
       text: 'Edit', \
       cssclass: 'mr5 ', \
-      icon: 'fa fa-pencil'
+      icon: 'fas fa-pencil-alt'
 
 = component 'breadcrumb' do
   li = link_to '<%= plural_table_name.titleize %>', <%= plural_table_name %>_path

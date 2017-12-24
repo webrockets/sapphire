@@ -2,7 +2,7 @@
   - if can? :create, User
     = link_to new_admin_user_path, class: 'button is-link is-pulled-right' do
         span.icon
-          i.fa.fa-plus
+          i.fas.fa-plus
         span New User
 
 = component 'breadcrumb' do
@@ -35,23 +35,23 @@
           td
             - if user.confirmed_at
               span.icon.has-text-success title="Confirmed"
-                i.fa.fa-envelope
+                i.fas.fa-envelope
             - else
               span.icon.has-text-danger title="unconfirmed"
-                i.fa.fa-envelope
+                i.fas.fa-envelope
 
             - if user.locked_at
               span.icon.has-text-danger title="Locked"
-                i.fa.fa-ban
+                i.fas.fa-ban
             - else
               span.icon.has-text-success title="Unlocked"
-                i.fa.fa-check-circle
+                i.fas.fa-check-circle
           td
             - if can? :update, user
               = link_to edit_admin_user_path(user), class: 'button is-light is-small mr5', title: 'Edit' do
                 span.icon
-                  i.fa.fa-edit
+                  i.fas.fa-pencil-alt
             - if can? :destroy, user
               = link_to admin_user_path(user), data: { confirm: 'Are you sure?' }, method: :delete, class: 'button is-small is-danger mr5', title: 'Destroy' do
                 span.icon
-                  i.fa.fa-trash
+                  i.fas.fa-trash

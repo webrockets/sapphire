@@ -14,28 +14,28 @@ export default class Toaster {
 
   success(params) {
     iziToast.success({
-      icon: 'fa fa-check',
+      icon: 'fas fa-check',
       ...params
     })
   }
 
   error(params) {
     iziToast.error({
-      icon: 'fa fa-ban',
+      icon: 'fas fa-ban',
       ...params
     })
   }
 
   warning(params) {
     iziToast.warning({
-      icon: 'fa fa-exclamation-triangle',
+      icon: 'fas fa-exclamation-triangle',
       ...params
     })
   }
 
   info(params) {
     iziToast.info({
-      icon: 'fa fa-info-circle',
+      icon: 'fas fa-info-circle',
       ...params
     })
   }
