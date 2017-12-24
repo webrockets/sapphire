@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :api do
+    get 'users/me', as: :current_user
+    put 'users/:id/change_role', to: 'users#change_role', as: :user_change_role
+  end
+
   resources :items
 
   devise_for :users, path: 'auth', controllers: {

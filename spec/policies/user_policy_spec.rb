@@ -18,6 +18,13 @@ RSpec.describe UserPolicy do
 
   permissions :update? do
     it { is_expected.to permit admin, user }
+    it { is_expected.to permit user, user }
+    it { is_expected.not_to permit user, admin }
+  end
+
+  permissions :change_role? do
+    it { is_expected.to permit admin, user }
+    it { is_expected.not_to permit user, user }
     it { is_expected.not_to permit user, admin }
   end
 

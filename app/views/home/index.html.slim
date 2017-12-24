@@ -1,8 +1,11 @@
-h1.title Home#index
-p Find me in app/views/home/index.html.slim
+= component 'page-title', title: 'Home'
 
-= link_to 'Dashboard', admin_dashboard_path
-- if user_signed_in?
-  = link_to 'Logout', destroy_user_session_path
-- else
-  = link_to 'Login', new_user_session_path
+.box.mt10
+  p Seja bem vindo a Página Inicial
+  p
+    = link_to 'Admin Área', admin_dashboard_path
+    br
+    - if user_signed_in?
+      = link_to 'Logout', destroy_user_session_path
+    - else
+      = link_to 'Login', new_user_session_path
