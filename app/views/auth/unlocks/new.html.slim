@@ -1,5 +1,5 @@
-= content_for :title, 'Resend unlock instructions'
-= content_for :subtitle, 'Please type your e-mail to receive the unlock instructions'
+= content_for :title, t('unlocks.title')
+= content_for :subtitle, t('unlocks.subtitle')
 = content_for :image
   .avatar
     span.fa-stack.fa-4x.has-text-grey
@@ -9,6 +9,6 @@
 = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
   .field
     .control
-      = f.email_field :email, autofocus: true, class: 'input is-large', placeholder: 'Recovery e-mail'
+      = f.email_field :email, autofocus: true, class: 'input is-large', placeholder: t('unlocks.recovery_email')
 
-  = f.submit "Resend unlock instructions", class: 'button is-large is-primary is-fullwidth'
+  = f.submit t('unlocks.action'), class: 'button is-large is-primary is-fullwidth'

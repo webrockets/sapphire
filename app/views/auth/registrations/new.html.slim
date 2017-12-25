@@ -1,5 +1,5 @@
-= content_for :title, 'Sign up'
-= content_for :subtitle, 'Please fill the form bellow to create an account'
+= content_for :title, t('sign_up.title')
+= content_for :subtitle, t('sign_up.subtitle')
 = content_for :image do
   figure.avatar
     span.fa-stack.fa-4x.has-text-grey
@@ -9,18 +9,18 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   .field
     .control
-      = f.text_field :name, autofocus: true, class: 'input is-large', placeholder: 'Name'
+      = f.text_field :name, autofocus: true, class: 'input is-large', placeholder: User.human_attribute_name(:name)
 
   .field
     .control
-      = f.email_field :email, autofocus: true, class: 'input is-large', placeholder: 'E-mail'
+      = f.email_field :email, autofocus: true, class: 'input is-large', placeholder: User.human_attribute_name(:email)
 
   .field
     .control
-      = f.password_field :password, autocomplete: "off", class: 'input is-large', placeholder: 'Password'
+      = f.password_field :password, autocomplete: "off", class: 'input is-large', placeholder: User.human_attribute_name(:password)
 
   .field
     .control
-      = f.password_field :password_confirmation, autocomplete: "off", class: 'input is-large', placeholder: 'Confirm password'
+      = f.password_field :password_confirmation, autocomplete: "off", class: 'input is-large', placeholder: User.human_attribute_name(:password_confirmation)
 
-  = f.submit "Sign up", class: 'button is-fullwidth is-large is-primary'
+  = f.submit t('devise.registrations.new.sign_up'), class: 'button is-fullwidth is-large is-primary'

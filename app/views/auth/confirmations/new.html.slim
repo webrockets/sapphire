@@ -1,5 +1,5 @@
-= content_for :title, 'Confirmation'
-= content_for :subtitle, 'Resend confirmation instructions'
+= content_for :title, t('confirmation.title')
+= content_for :subtitle, t('confirmation.subtitle')
 = content_for :image do
   figure.avatar
     span.fa-stack.fa-4x.has-text-grey
@@ -9,6 +9,8 @@
 = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
   .field
     .control
-      = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'input is-large', placeholder: 'E-mail for instructions'
+      = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
+        class: 'input is-large',
+        placeholder: t('confirmation.email_for_instructions')
 
-  = f.submit "Resend confirmation instructions", class: 'button is-primary is-large is-fullwidth'
+  = f.submit t('devise.confirmations.new.resend_confirmation_instructions'), class: 'button is-primary is-large is-fullwidth'
