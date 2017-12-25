@@ -37,7 +37,6 @@ export default {
     onChangeSuccess() {
       this.loading = false
       this.$toaster.success({ message: 'Perfil alterado com sucesso' })
-      window.location.reload();
     },
 
     onChangeFailed(error) {
