@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#index'
+  match '/404', to: 'errors#not_found', via: :all, as: :not_found
+  match '/500', to: 'errors#internal_server_error', via: :all, as: :internal_server_error
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

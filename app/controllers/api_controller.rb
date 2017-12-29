@@ -11,7 +11,7 @@ class ApiController < ActionController::API
 
   def user_not_authorized(exception)
     policy_name = exception.policy.class.to_s.underscore
-    render json: { message: "#{policy_name}.#{exception.query[0..-2]}" }, status: :forbidden
+    render json: { message: I18n.t("#{policy_name}.#{exception.query[0..-2]}") }, status: :forbidden
   end
 
   def unprocessable_entity(exception)

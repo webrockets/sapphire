@@ -25,5 +25,7 @@ module Sapphire
     # -- all .rb files in that directory are automatically loaded.
     I18n.available_locales = %i[en pt_BR]
     I18n.default_locale = :pt_BR
+
+    config.exceptions_app = self.routes
   end
 end
