@@ -11,6 +11,8 @@ pt_BR:
         current_sign_in_ip: IP do acesso atual
         name: Nome
         email: E-mail
+        role: Perfil
+        status: Situação
         encrypted_password: Senha criptografada
         failed_attempts: Tentativas sem sucesso
         last_sign_in_at: "Último acesso em"
@@ -22,7 +24,7 @@ pt_BR:
         remember_me: Lembre-se de mim
         reset_password_sent_at: Resetar senha enviado em
         reset_password_token: Resetar token de senha
-        sign_in_count: Contagem de acessos
+        sign_in_count: Nº de acessos
         unconfirmed_email: E-mail não confirmado
         unlock_token: Token de desbloqueio
         updated_at: Atualizado em
@@ -361,9 +363,12 @@ pt_BR:
     title: Confirmação
     subtitle: Reenviar instruções de confirmação
     email_for_instructions: E-mail para instruções
+  home: Início
   login:
     title: Login
     subtitle: Efetuar login para prosseguir
+  logout: Logout
+  register: Inscreva-se
   sign_up:
     title: Inscrição
     subtitle: Preencha o formulário abaixo para concluir sua inscrição
@@ -383,3 +388,36 @@ pt_BR:
     new_password: Nova senha
     new_password_confirmation: Confirmar nova senha
     action: Alterar senha
+
+  errors:
+    not_found: Página não encontrada
+    back_to_home: Voltar ao Início
+  action:
+    title: Ações
+    edit: Editar
+    back: Voltar
+    update: Atualizar
+    save: Salvar
+    create: Criar
+    destroy: Excluir
+    confirm_destroy: Tem certeza que deseja excluir este registro?
+  user:
+    title: Usuário %{name}
+    roles:
+      admin: Aministrador
+      user: Usuário
+  users:
+    title: Usuários
+    list: Lista de Usuários
+    new_user: Novo Usuário
+    editing: Editando Usuário
+    viewing: Visualizando Usuário
+    settings: Configurações de Usuários
+    my_account: Minha Conta
+    confirmed: Confirmado
+    unconfirmed: Não Confirmado
+    locked: Bloqueado
+    unlocked: Desbloqueado
+
+  user_policy:
+    change_role: Você não tem permissão para alterar perfil de usuários

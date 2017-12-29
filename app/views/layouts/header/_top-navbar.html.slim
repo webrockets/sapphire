@@ -10,28 +10,29 @@ nav.navbar.is-primary
 
     #navbarExampleTransparentExample.navbar-menu
       .navbar-start
-        a.navbar-item href = root_path Home
+        a.navbar-item href=root_path = t('home')
 
         - if user_signed_in?
           .navbar-item.has-dropdown.is-hoverable
-            a.navbar-link Users
+            a.navbar-link = t('users.title')
             .navbar-dropdown.is-boxed
               a.navbar-item href=admin_users_path
                 span.icon
                   i.fas.fa-users
-                | List Users
+                = t('users.list')
 
-              a.navbar-item href=new_admin_user_path
-                span.icon
-                  i.fas.fa-user-plus
-                | New User
+              - if can? :create, User
+                a.navbar-item href=new_admin_user_path
+                  span.icon
+                    i.fas.fa-user-plus
+                  = t('users.new_user')
 
               hr.navbar-divider
 
               a.navbar-item
                 span.icon
                   i.fas.fa-cog
-                | User Settings
+                = t('users.settings')
 
       .navbar-end
         - if user_signed_in?
@@ -41,14 +42,14 @@ nav.navbar.is-primary
               a.navbar-item
                 span.icon
                   i.fas.fa-user
-                | Profile
+                = t('users.my_account')
 
               hr.navbar-divider
 
               a.navbar-item href=destroy_user_session_path
                 span.icon
-                  i.fas.fa-sign-out
-                | Sign out
+                  i.fas.fa-sign-out-alt
+                = t('logout')
         - else
-          a.navbar-item href=new_user_session_path Sign In
-          a.navbar-item href=new_user_registration_path Sign Up
+          a.navbar-item href=new_user_session_path = t('login.title')
+          a.navbar-item href=new_user_registration_path = t('register')

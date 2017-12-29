@@ -1,9 +1,9 @@
-= component 'page-title', title: 'Editing User'
+= component 'page-title', title: t('users.editing')
 
 = component 'breadcrumb' do
-  li = link_to 'Users', admin_users_path
+  li = link_to t('users.title'), admin_users_path
   li = link_to @user.name, admin_user_path(@user)
   li.is-active
-    a Edit
+    a = t 'action.edit'
 
 == render 'form'

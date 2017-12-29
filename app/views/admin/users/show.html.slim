@@ -1,18 +1,18 @@
-= component 'page-title', title: 'View User'
+= component 'page-title', title: t('users.viewing')
   .is-pulled-right
-    = component 'button-back', path: admin_users_path, cssclass: 'mr5 ', text: 'Back'
+    = component 'button-back', path: admin_users_path, cssclass: 'mr5 '
     - if can? :update, @user
       = component 'button-link', path: edit_admin_user_path(@user), \
-        text: 'Edit', \
+        text: t('action.edit'), \
         cssclass: 'mr5 ', \
         icon: 'fas fa-pencil-alt'
 
 = component 'breadcrumb' do
-  li = link_to 'Users', admin_users_path
+  li = link_to t('users.title'), admin_users_path
   li.is-active
     a = @user.name
   - if can? :update, @user
-    li = link_to 'Edit', edit_admin_user_path(@user)
+    li = link_to t('action.edit'), edit_admin_user_path(@user)
 
 .card
   .card-content
@@ -36,10 +36,10 @@
           strong Status:
           | &nbsp;
           - if @user.confirmed_at
-            span.mr5.tag.is-success CONFIRMED
+            span.mr5.tag.is-success = t('users.confirmed').upcase
           - else
-            span.mr5.tag.is-danger UNCONFIRMED
+            span.mr5.tag.is-danger = t('users.unconfirmed').upcase
           - if @user.locked_at
-            span.mr5.tag.is-danger LOCKED
+            span.mr5.tag.is-danger = t('users.locked').upcase
           - else
-            span.mr5.tag.is-success UNLOCKED
+            span.mr5.tag.is-success = t('users.unlocked').upcase

@@ -1,8 +1,8 @@
-= component 'page-title', title: 'New User'
+= component 'page-title', title: t('users.new_user')
 
 = component 'breadcrumb' do
-  li = link_to 'Users', admin_users_path
+  li = link_to t('users.title'), admin_users_path
   li.is-active
-    a New User
+    a = t('users.new_user')
 
 == render 'form'

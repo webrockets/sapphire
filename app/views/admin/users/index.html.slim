@@ -1,27 +1,27 @@
-= component 'page-title', title: 'Listing Users' do
+= component 'page-title', title: t('users.list') do
   - if can? :create, User
     = link_to new_admin_user_path, class: 'button is-link is-pulled-right' do
         span.icon
           i.fas.fa-plus
-        span New User
+        span = t('users.new_user')
 
 = component 'breadcrumb' do
   li.is-active
-    a Users
+    a = t('users.title')
 
 .card
   table.table.is-striped.is-hoverable.is-fullwidth
     .card-header
       thead
         tr
-          th Name
-          th Email
-          th Role
-          th Since
-          th Sign In Count
-          th Last Sign In
-          th Status
-          th style="width: 10%" Actions
+          th = t('activerecord.attributes.user.name')
+          th = t('activerecord.attributes.user.email')
+          th = t('activerecord.attributes.user.role')
+          th = t('activerecord.attributes.user.created_at')
+          th = t('activerecord.attributes.user.sign_in_count')
+          th = t('activerecord.attributes.user.last_sign_in_at')
+          th = t('activerecord.attributes.user.status')
+          th style="width: 10%" = t('action.title')
 
     tbody
       - @users.each do |user|
@@ -38,24 +38,24 @@
           td = user.last_sign_in_at&.strftime('%Y/%m/%d at %I:%M %P')
           td
             - if user.confirmed_at
-              span.icon.has-text-success title="Confirmed"
+              span.icon.has-text-success title="#{t('users.confirmed')}"
                 i.fas.fa-envelope
             - else
-              span.icon.has-text-danger title="unconfirmed"
+              span.icon.has-text-danger title="#{t('users.unconfirmed')}"
                 i.fas.fa-envelope
 
             - if user.locked_at
-              span.icon.has-text-danger title="Locked"
+              span.icon.has-text-danger title="#{t('users.locked')}"
                 i.fas.fa-ban
             - else
-              span.icon.has-text-success title="Unlocked"
+              span.icon.has-text-success title="#{t('users.unlocked')}"
                 i.fas.fa-check-circle
           td
             - if can? :update, user
-              = link_to edit_admin_user_path(user), class: 'button is-light is-small mr5', title: 'Edit' do
+              = link_to edit_admin_user_path(user), class: 'button is-light is-small mr5', title: t('action.edit') do
                 span.icon
                   i.fas.fa-pencil-alt
             - if can? :destroy, user
-              = link_to admin_user_path(user), data: { confirm: 'Are you sure?' }, method: :delete, class: 'button is-small is-danger mr5', title: 'Destroy' do
+              = link_to admin_user_path(user), data: { confirm: t('action.confirm_destroy') }, method: :delete, class: 'button is-small is-danger mr5', title: t('action.destroy') do
                 span.icon
                   i.fas.fa-trash
