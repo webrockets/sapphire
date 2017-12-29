@@ -29,7 +29,7 @@ module Admin
 
       respond_to do |format|
         if @user.save
-          format.html { redirect_to admin_user_path(@user), flash: { success: 'User was successfully created.' } }
+          format.html { redirect_to admin_user_path(@user), flash: { success: I18n.t('user.created') } }
           format.json { render :show, status: :created, location: @user }
         else
           format.html { render :new }
@@ -43,7 +43,7 @@ module Admin
     def update
       respond_to do |format|
         if @user.update(user_params)
-          format.html { redirect_to admin_user_path(@user), flash: { success: 'User was successfully updated.' } }
+          format.html { redirect_to admin_user_path(@user), flash: { success: I18n.t('user.updated') } }
           format.json { render :show, status: :ok, location: @user }
         else
           format.html { render :edit }
@@ -57,7 +57,7 @@ module Admin
     def destroy
       @user.destroy
       respond_to do |format|
-        format.html { redirect_to admin_users_url, flash: { success: 'User was successfully destroyed.' } }
+        format.html { redirect_to admin_users_url, flash: { success: I18n.t('user.destroyed') } }
         format.json { head :no_content }
       end
     end

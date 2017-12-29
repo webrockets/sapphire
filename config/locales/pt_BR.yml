@@ -406,6 +406,9 @@ pt_BR:
     roles:
       admin: Aministrador
       user: Usuário
+    updated: Usuário atualizado
+    created: Usuário criado
+    destroyed: Usuário excluído
   users:
     title: Usuários
     list: Lista de Usuários
