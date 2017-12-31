@@ -48,10 +48,6 @@ pt_BR:
 
   admin:
     users:
-      form:
-        error_messages:
-          one: '1 mensagem de erro:'
-          other: "%{count} mensagens de erro:"
       new:
         new_user: Novo Usuário
       update:

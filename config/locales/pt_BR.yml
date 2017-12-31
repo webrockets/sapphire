@@ -229,6 +229,11 @@ pt_BR:
     back: Voltar
     update: Atualizar
     save: Salvar
+    show: Visualizar
     create: Criar
     destroy: Excluir
     confirm_destroy: Tem certeza que deseja excluir este registro?
+
+  error_messages:
+    one: '1 mensagem de erro:'
+    other: "%{count} mensagens de erro:"

@@ -1,8 +1,8 @@
-= component 'page-title', title: 'New <%= singular_table_name.titleize %>'
+= component 'page-title', title: t('.title')
 
 = component 'breadcrumb' do
-  li = link_to '<%= plural_table_name.titleize %>', <%= plural_table_name %>_path
+  li = link_to t('<%= plural_table_name %>.index.title'), <%= plural_table_name %>_path
   li.is-active
-    a New <%= singular_table_name.titleize %>
+    a = t('<%= plural_table_name %>.new.title')
 
 == render 'form'

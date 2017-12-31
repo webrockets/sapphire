@@ -1,21 +1,21 @@
-= component 'page-title', title: 'View <%= singular_table_name.titleize %>'
+= component 'page-title', title: t('.title', name: @<%= singular_table_name %>.id)
   .is-pulled-right
-    = component 'button-back', path: <%= plural_table_name %>_path, cssclass: 'mr5 ', text: 'Back'
+    = component 'button-back', path: <%= plural_table_name %>_path, cssclass: 'mr5 ', text: t('action.back')
     = component 'button-link', path: edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), \
-      text: 'Edit', \
+      text: t('action.edit'), \
       cssclass: 'mr5 ', \
       icon: 'fas fa-pencil-alt'
 
 = component 'breadcrumb' do
-  li = link_to '<%= plural_table_name.titleize %>', <%= plural_table_name %>_path
+  li = link_to t('<%= plural_table_name %>.index.title'), <%= plural_table_name %>_path
   li.is-active
     a = @<%= singular_table_name %>.id
-  li = link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>)
+  li = link_to t('action.edit'), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>)
 
 .card
   .card-content
 <% attributes.each do |attribute| -%>
     p
-      strong <%= attribute.human_name %>:
+      strong = <%= singular_table_name.titleize %>.human_attribute_name(:<%= attribute.name %>) + ':'
       =< @<%= singular_table_name %>.<%= attribute.name %>
 <% end -%>
