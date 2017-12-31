@@ -1,6 +1,6 @@
 default: &default
   adapter: <%= ENV['DATABASE_ADAPTER'] %>
-  encoding: <%= ENV['DATABASE_ADAPTER'] %>
+  encoding: <%= ENV['DATABASE_ENCODING'] %>
   database: <%= ENV['DATABASE_NAME'] %>
   username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
