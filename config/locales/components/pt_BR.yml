@@ -1,0 +1,7 @@
+pt_BR:
+  components:
+    flash-messages:
+      success: Sucesso
+      warning: Atenção
+      error: Erro
+      notice: Info
