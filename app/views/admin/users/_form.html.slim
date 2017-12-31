@@ -1,7 +1,7 @@
 = form_for [:admin, @user] do |f|
   - if @user.errors.any?
     .notification.is-danger
-      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      h2 = t '.error_messages', count: @user.errors.count
       ul
         - @user.errors.full_messages.each do |message|
           li = message
